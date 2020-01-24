@@ -1,0 +1,63 @@
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		 int A[] = new int[]{60, 100, 120}; 
+        int B[] = new int[]{10, 20, 30};
+		ArrayList<ArrayList<Integer>> l1=new ArrayList<ArrayList<Integer>>();
+	
+		int n=B.length;
+		for(int i=0;i<(1<<n);i++)
+		{
+		    int m=1;
+		    int k=0;
+		    int sum=0;
+		    ArrayList<Integer> l2=new ArrayList<Integer>();
+		    for(int j=0;j<n;j++)
+		    {   	
+		        if((i&m)>0)
+		        {
+		           sum=sum+B[j];  
+		         
+		            
+		            
+		            l2.add(B[j]);
+		            
+		        }
+		       
+		        m=m<<1;
+		    }
+		    l1.add(l2);
+		    if(sum==50)
+		     {
+		     break;
+		     }
+		 
+		}
+
+		int x=l1.size()-1;
+		int C[]=new int[l1.get(x).size()];
+		for(int j=0;j<l1.get(x).size();j++)
+		C[j]=l1.get(x).get(j);
+		int sum=0; 
+ 		for(int i=0;i<C.length;i++)
+ 		{     
+ 		    for(int j=0;j<B.length;j++)
+ 		    {
+ 		        if(C[i]==B[j])
+ 		        sum=sum+A[j];
+ 		    }
+ 		   
+ 		}
+ 		System.out.println(sum);
+ 		
+	
+
+	    
+	}
+}
+
+
+///Complexity O(n^2)

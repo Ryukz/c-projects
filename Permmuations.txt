@@ -1,0 +1,42 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main
+{
+	public static String swap(String A,int i,int j)
+	{
+	    char B[]=A.toCharArray();
+	    char temp=B[i];
+	    B[i]=B[j];
+	    B[j]=temp;
+	    String C=String.valueOf(B);
+	    return C;
+	}
+	public static void calculate(String A,int left,int right)
+	{
+	    if(left==right)
+	    System.out.println(A);
+	    else
+	    {
+	        for(int i=left;i<=right;i++)
+	        {
+	            String a=swap(A,left,i);
+	            calculate(a,left+1,right);
+	        }
+	    }
+	}
+	public static void main(String[] args) {
+		String A="ABC";
+		int x=A.length();
+		calculate(A,0,x-1);
+		
+	}
+}
+
+
+//Complexity n!
